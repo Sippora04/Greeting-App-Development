@@ -29,7 +29,7 @@ public class GreetingService implements IGreetingService {
 			return "Hello " + user.getFirstName() + " " + user.getLastName() + "!";
 		}
 	}
-	
+
 	@Autowired
 	IGreetingsRepository greetingrepository;
 
@@ -40,4 +40,8 @@ public class GreetingService implements IGreetingService {
 		return greeting;
 	}
 
+	@Override
+	public Greeting getGreeting(Long id) {
+		return greetingrepository.findById(id).orElseGet(null);
+	}
 }

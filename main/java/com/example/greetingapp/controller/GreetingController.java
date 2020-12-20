@@ -4,6 +4,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +46,12 @@ public class GreetingController {
 	@PostMapping("/save")
 	public ResponseEntity<Greeting> saveGreeting(@Valid @RequestBody GreetingConfigure greetingconfig) {
 		Greeting greeting = greetingService.saveGreeting(greetingconfig);
+		return new ResponseEntity<>(greeting, HttpStatus.OK);
+	}
+
+	@GetMapping("/get/{id}")
+	public ResponseEntity<Greeting> getGreeting(@PathVariable Long id) {
+		Greeting greeting = greetingService.getGreeting(id);
 		return new ResponseEntity<>(greeting, HttpStatus.OK);
 	}
 }

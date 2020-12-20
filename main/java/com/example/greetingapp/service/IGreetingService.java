@@ -12,4 +12,6 @@ public interface IGreetingService {
 
 	Greeting saveGreeting(GreetingConfigure greetingconfig);
 
+	Greeting getGreeting(Long id);
+
 }

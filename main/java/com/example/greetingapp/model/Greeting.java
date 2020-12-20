@@ -11,22 +11,21 @@ public class Greeting {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
-	private long id;
+	private Long id;
 	private String msg;
 
 	public Greeting() {
 	}
 
-	public Greeting(GreetingConfigure config) {
-		this.msg = config.msg;
+	public Greeting(GreetingConfigure greetingconfig) {
+		this.msg = greetingconfig.msg;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -37,4 +36,5 @@ public class Greeting {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+
 }
