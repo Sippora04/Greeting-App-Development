@@ -1,12 +1,17 @@
 package com.example.greetingapp.controller;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.greetingapp.configure.GreetingConfigure;
 import com.example.greetingapp.model.User;
+import com.example.greetingapp.model.Greeting;
 import com.example.greetingapp.service.IGreetingService;
 
 /*
@@ -34,5 +39,11 @@ public class GreetingController {
 	@PostMapping("/post")
 	public String greetUser(@RequestBody User user) {
 		return greetingService.getMessage(user);
+	}
+
+	@PostMapping("/save")
+	public ResponseEntity<Greeting> saveGreeting(@Valid @RequestBody GreetingConfigure greetingconfig) {
+		Greeting greeting = greetingService.saveGreeting(greetingconfig);
+		return new ResponseEntity<>(greeting, HttpStatus.OK);
 	}
 }
