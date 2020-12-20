@@ -1,40 +1,40 @@
 package com.example.greetingapp.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import com.example.greetingapp.configure.GreetingConfigure;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "GREETINGS")
 public class Greeting {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	private String msg;
 
 	public Greeting() {
+		id = 0;
+		msg = "";
 	}
 
-	public Greeting(GreetingConfigure greetingconfig) {
-		this.msg = greetingconfig.msg;
+	public Greeting(long id, String message) {
+		this.id = id;
+		this.msg = message;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getMsg() {
+	public String getMessage() {
 		return msg;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMessage(String message) {
+		this.msg = message;
 	}
-
 }
