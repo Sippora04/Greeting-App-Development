@@ -1,8 +1,15 @@
 package com.example.greetingapp.model;
 
 public class User {
-	private String firstName;
-	private String lastName;
+
+	String firstName;
+	String lastName;
+
+	public User(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -20,8 +27,4 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	@Override
-	public String toString() {
-		return "User{" + "firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + '}';
-	}
 }
