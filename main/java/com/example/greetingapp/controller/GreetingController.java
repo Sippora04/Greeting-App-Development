@@ -1,6 +1,8 @@
 package com.example.greetingapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,4 +59,10 @@ public class GreetingController {
 			@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Greeting(id, String.format(template, name));
 	}
+
+	@PutMapping("/put")
+	public Greeting updateGreeting(@RequestParam(value = "id") long id,
+			@RequestParam(value = "message", defaultValue = "")String message) {
+		return greetingService.updateGreeting(id, message);		
+	}	
 }

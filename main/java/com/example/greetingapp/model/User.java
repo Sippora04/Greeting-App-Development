@@ -23,9 +23,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		String string = (firstName != null) ? firstName + " " : "";
-		string += (lastName != null) ? lastName : "";
-		return string.trim();
+		String name = (this.firstName != null ? this.firstName : "") + " "
+				+ (this.lastName != null ? this.lastName : "");
+		return name;
 	}
 
 }
