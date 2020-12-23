@@ -45,6 +45,7 @@ public class GreetingService implements IGreetingService {
 	@Override
 	public String deleteGreeting(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		greetingRepository.deleteById(id);
+		return "Deleted Successfully";
 	}
 }
